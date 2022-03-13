@@ -1,2 +1,2 @@
-# java
-java programming files and notes
+# Java
+Java programming files and notes
