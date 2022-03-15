@@ -6,7 +6,6 @@ public class stringConstructor {
         String s3 = "deepak"; // 1 object
         String s4 = new String("deepak"); // 2 object
 
-
         System.out.println(s3);
         System.out.println(s4.length());
 
@@ -18,8 +17,6 @@ public class stringConstructor {
         String s8 = new String(s7);
         System.out.println(s8);
 
-
-
         char[] s1 = new char[]{'a','b','c'}; // store string as a password
         String s2 = new String("abc");
         System.out.println("s1:- " + s1);
@@ -28,5 +25,9 @@ public class stringConstructor {
         char ch[] = {'g','e','e','k','y'};
         String st = new String(ch);
         System.out.println(st);
+        
+        byte b[] = {101, 102, 103};
+        String st2 = new String(b);
+        System.out.println(st2);
     }
 }
