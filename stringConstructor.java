@@ -24,5 +24,9 @@ public class stringConstructor {
         String s2 = new String("abc");
         System.out.println("s1:- " + s1);
         System.out.println("s1:- " + s2);
+        
+        char ch[] = {'g','e','e','k','y'};
+        String st = new String(ch);
+        System.out.println(st);
     }
 }
