@@ -13,7 +13,7 @@ public class wrapperClassExample {
         System.out.println(i); // unboxing
 
         Integer inte = n; // autoboxing
-        System.out.println(n);
+        System.out.println(inte);
 
         int j = inte;
         System.out.println(j); // autounboxing
