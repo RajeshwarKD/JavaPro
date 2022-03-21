@@ -1,5 +1,7 @@
 package com.company;
 
+import javax.lang.model.element.NestingKind;
+
 public class wrapperClassExample {
     public static void main(String[] args) {
 
@@ -16,8 +18,12 @@ public class wrapperClassExample {
         int j = inte;
         System.out.println(j); // autounboxing
 
+        String str = "133";
+        int num = Integer.parseInt(str); // parseInt() is static method in wrapper class so-called time used name of wrapper class
+        System.out.println(num); // convert string to integer value to help of wrapper class
+
         //converts into wrapper objects
-      /* Integer obj = Integer.valueOf(n);
+      /* Integer obj = Integer.valueOf(n); // valueOf() is static method in wrapper class so-called time used name of wrapper class
 
        if (obj instanceof Integer) { //instanceof operator is used to test whether the object is an instance of the specified type (class or subclass or interface).
             System.out.println("An object of Integer is created.");
