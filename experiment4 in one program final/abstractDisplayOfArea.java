@@ -1,69 +1,44 @@
 package com.company;
-
-/**
- *  The Shape class is an abstract class that holds
- *  general data about a shape.
- */
+ // The dimension class is an abstract class that holds general data about a dimension.
 
 abstract class dimension
 {
     private double height;  // To hold height.
     private double width;  //To hold width or base
 
-    // Set height and width
-    public void setValues(double height, double width)
+    public void setValues(double height, double width) // Set height and width
     {
         this.height = height;
         this.width = width;
     }
 
-    //Get height
-    public double getHeight()
+    public double getHeight() //Get height
     {
-
         return height;
     }
 
-    //Get width
-    public double getWidth()
+    public double getWidth() //Get width
     {
-
         return width;
     }
 
-    // The getArea method is abstract.
-    // It must be overridden in a subclass.
-
+    // The getArea method is abstract. It must be overridden in a subclass.
     abstract public double getArea();
 }
 
-/**
- *  This class Rectangle calculates
- *  the area of rectangle
- */
-
-class RectangleSubClass extends dimension
+class RectangleSubClass extends dimension //This class Rectangle calculates the area of rectangle
 {
-    //Calculate and return area of rectangle
     public double getArea()
     {
-
-        return getHeight() * getWidth();
+        return getHeight() * getWidth(); //Calculate and return area of rectangle
     }
 }
 
-/**
- *  This class Triangle calculates
- *  the area of triangle
- */
-
-class TriangleSubClass extends dimension
+class TriangleSubClass extends dimension //This class Triangle calculates the area of triangle.
 {
-    //Calculate and return area of triangle
     public double getArea()
     {
-
-        return (getHeight() * getWidth()) / 2;
+        return (getHeight() * getWidth()) / 2; //Calculate and return area of triangle
     }
 }
 public class abstractDisplayOfArea {
