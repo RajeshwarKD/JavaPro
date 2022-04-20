@@ -31,15 +31,15 @@ public class fileHandling {
         } */
 
        // Reading a file
-       /* File fileReading = new File("fileHandling.txt");
-        try {
+       /* try {
+            FileReader fileReading = new FileReader("fileHandling.txt");
             Scanner sc = new Scanner(fileReading);
             while(sc.hasNextLine()){
                 String line = sc.nextLine();
                 System.out.println(line);
             }
             sc.close();
-        } catch (FileNotFoundException e) {
+        } catch (IOException e) {
             e.printStackTrace();
         } */
 
