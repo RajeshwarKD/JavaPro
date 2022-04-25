@@ -44,5 +44,11 @@ public class awtPackage {
 
         button1.setEnabled(false);
         //button1.setVisible(false);
+
+        Label email = new Label("Enter your email");
+        Label password = new Label("Enter your password");
+
+        frame.add(email);
+        frame.add(password);
     }
 }
