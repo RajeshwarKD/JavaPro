@@ -1,208 +1,185 @@
 import javax.swing.*;
-import java.awt.*;
 import java.awt.event.*;
+public class SwingCalci implements ActionListener {
+    JFrame frame;
+    JTextField textField;
+    JButton button1, button2, button3, button4, button5, button6, button7, button8, button9, button0, buttonDot, buttonAdd, buttonSub, buttonMul, buttonDiv, buttonEql, buttonDel, buttonClr;
+    double a, b, result;
+    int operator;
+    SwingCalci(){
+        frame=new JFrame("Swing-Calculator");
+        frame.setLayout(null);
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setBounds(20, 20, 300, 350);
+        frame.setResizable(false);
 
-public class MyCalci implements ActionListener {
-    JFrame f;
-    JTextField t;
-    JButton b1,b2,b3,b4,b5,b6,b7,b8,b9,b0,badd,bsub,bmul,bdiv,beql,bdel,bdec,bclr;
-    static double a=0, b=0, result=0;
-    static int operator=0;
-    MyCalci(){
-        f=new JFrame("My Calculator");
+        textField=new JTextField();
+        textField.setBounds(40,40,200,50);
 
-        f.setLayout(null);
-        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        f.setBounds(20, 20, 300, 350);
-        f.setResizable(false);
-        Font fo = new Font("Arial", Font.BOLD, 20);
-        t=new JTextField();
-        t.setFont(fo);
-        t.setBackground(Color.YELLOW);
-        t.setForeground(Color.RED);
-        t.setBounds(40,40,200,50);
+        button1=new JButton("1");
+        button2=new JButton("2");
+        button3=new JButton("3");
+        button4=new JButton("4");
+        button5=new JButton("5");
+        button6=new JButton("6");
+        button7=new JButton("7");
+        button8=new JButton("8");
+        button9=new JButton("9");
+        button0=new JButton("0");
+        buttonDot=new JButton(".");
 
-        b1=new JButton("1");
-        b2=new JButton("2");
-        b3=new JButton("3");
-        b4=new JButton("4");
-        b5=new JButton("5");
-        b6=new JButton("6");
-        b7=new JButton("7");
-        b8=new JButton("8");
-        b9=new JButton("9");
-        b0=new JButton("0");
+        buttonAdd =new JButton("+");
+        buttonSub=new JButton("-");
+        buttonMul=new JButton("*");
+        buttonDiv=new JButton("/");
+        buttonEql =new JButton("=");
 
-        badd =new JButton("+");
-        badd.setFont(fo);
+        buttonDel=new JButton("Delete");
+        buttonClr=new JButton("Clear");
 
-        bsub=new JButton("-");
-        bsub.setFont(fo);
+        button7.setBounds(40,100,50,40);
+        button8.setBounds(90,100,50,40);
+        button9.setBounds(140,100,50,40);
+        buttonDiv.setBounds(190,100,50,40);
 
-        bdiv=new JButton("/");
-        bdiv.setFont(fo);
+        button4.setBounds(40,140,50,40);
+        button5.setBounds(90,140,50,40);
+        button6.setBounds(140,140,50,40);
+        buttonMul.setBounds(190,140,50,40);
 
-        bmul=new JButton("*");
-        bmul.setFont(fo);
+        button1.setBounds(40,180,50,40);
+        button2.setBounds(90,180,50,40);
+        button3.setBounds(140,180,50,40);
+        buttonSub.setBounds(190,180,50,40);
 
-        beql =new JButton("=");
-        beql.setFont(fo);
+        buttonDot.setBounds(40,220,50,40);
+        button0.setBounds(90,220,50,40);
+        buttonEql.setBounds(140,220,50,40);
+        buttonAdd.setBounds(190,220,50,40);
 
-        bdec=new JButton(".");
-        bdel=new JButton("Delete");
-        bclr=new JButton("Clear");
+        buttonDel.setBounds(40,260,100,40);
+        buttonClr.setBounds(140,260,100,40);
 
-        b7.setBounds(40,100,50,40);
-        b8.setBounds(90,100,50,40);
-        b9.setBounds(140,100,50,40);
-        bdiv.setBounds(190,100,50,40);
+        frame.add(textField);
+        frame.add(button1);
+        frame.add(button2);
+        frame.add(button3);
+        frame.add(button4);
+        frame.add(button5);
+        frame.add(button6);
+        frame.add(button7);
+        frame.add(button8);
+        frame.add(button9);
+        frame.add(button0);
+        frame.add(buttonDot);
+        frame.add(buttonAdd);
+        frame.add(buttonSub);
+        frame.add(buttonMul);
+        frame.add(buttonDiv);
+        frame.add(buttonEql);
+        frame.add(buttonDel);
+        frame.add(buttonClr);
 
-        b4.setBounds(40,140,50,40);
-        b5.setBounds(90,140,50,40);
-        b6.setBounds(140,140,50,40);
-        bmul.setBounds(190,140,50,40);
+        button1.addActionListener(this);
+        button2.addActionListener(this);
+        button3.addActionListener(this);
+        button4.addActionListener(this);
+        button5.addActionListener(this);
+        button6.addActionListener(this);
+        button7.addActionListener(this);
+        button8.addActionListener(this);
+        button9.addActionListener(this);
+        button0.addActionListener(this);
+        buttonDot.addActionListener(this);
+        buttonAdd.addActionListener(this);
+        buttonSub.addActionListener(this);
+        buttonMul.addActionListener(this);
+        buttonDiv.addActionListener(this);
+        buttonEql.addActionListener(this);
+        buttonDel.addActionListener(this);
+        buttonClr.addActionListener(this);
 
-        b1.setBounds(40,180,50,40);
-        b2.setBounds(90,180,50,40);
-        b3.setBounds(140,180,50,40);
-        bsub.setBounds(190,180,50,40);
-
-        bdec.setBounds(40,220,50,40);
-        b0.setBounds(90,220,50,40);
-        beql.setBounds(140,220,50,40);
-        badd.setBounds(190,220,50,40);
-
-        bdel.setBounds(40,260,100,40);
-        bclr.setBounds(140,260,100,40);
-
-        f.add(t);
-
-        f.add(b1);
-        f.add(b2);
-        f.add(b3);
-        f.add(b4);
-        f.add(b5);
-        f.add(b6);
-        f.add(b7);
-        f.add(b8);
-        f.add(b9);
-        f.add(b0);
-        f.add(badd);
-        f.add(bsub);
-        f.add(bmul);
-        f.add(bdiv);
-        f.add(beql);
-        f.add(bdec);
-        f.add(bdel);
-        f.add(bclr);
-
-        b1.addActionListener(this);
-        b2.addActionListener(this);
-        b3.addActionListener(this);
-        b4.addActionListener(this);
-        b5.addActionListener(this);
-        b6.addActionListener(this);
-        b7.addActionListener(this);
-        b8.addActionListener(this);
-        b9.addActionListener(this);
-        b0.addActionListener(this);
-        badd.addActionListener(this);
-        bsub.addActionListener(this);
-        bmul.addActionListener(this);
-        bdiv.addActionListener(this);
-        beql.addActionListener(this);
-        bdec.addActionListener(this);
-        bdel.addActionListener(this);
-        bclr.addActionListener(this);
-
-        f.setVisible(true);
+        frame.setVisible(true);
     }
 
     public static void main(String[] args) {
-    new MyCalci();
+        new SwingCalci();
     }
 
     @Override
     public void actionPerformed(ActionEvent e) {
-        if (e.getSource()==b1){
-            t.setText(t.getText() + "1");
-        }
-        if (e.getSource()==b2){
-            t.setText(t.getText().concat("2"));
-        }
-        if (e.getSource()==b3){
-            t.setText(t.getText().concat("3"));
-        }
-        if (e.getSource()==b4){
-            t.setText(t.getText().concat("4"));
-        }
-        if (e.getSource()==b5){
-            t.setText(t.getText().concat("5"));
-        }
-        if (e.getSource()==b6){
-            t.setText(t.getText().concat("6"));
-        }
-        if (e.getSource()==b7){
-            t.setText(t.getText().concat("7"));
-        }
-        if (e.getSource()==b8){
-            t.setText(t.getText().concat("8"));
-        }
-        if (e.getSource()==b9){
-            t.setText(t.getText().concat("9"));
-        }
-        if (e.getSource()==b0) {
-            t.setText(t.getText().concat("0"));
-        }
-        if (e.getSource()==bdec) {
-            t.setText(t.getText().concat("."));
+        Object source = e.getSource();
+        if (source==button1){
+            textField.setText(textField.getText() + "1");
+        } else if (source==button2){
+            textField.setText(textField.getText() + "2");
+        } else if (source==button3){
+            textField.setText(textField.getText() + "3");
+        } else if (source==button4){
+            textField.setText(textField.getText() + "4");
+        } else if (source==button5){
+            textField.setText(textField.getText() + "5");
+        } else if (source==button6){
+            textField.setText(textField.getText() + "6");
+        } else if (source==button7){
+            textField.setText(textField.getText() + "7");
+        } else if (source==button8){
+            textField.setText(textField.getText() + "8");
+        } else if (source==button9){
+            textField.setText(textField.getText() + "9");
+        } else if (source==button0){
+            textField.setText(textField.getText() + "0");
         }
 
-        if (e.getSource()==badd) {
-            a=Double.parseDouble(t.getText());
-            operator=1;
-            t.setText("");
+        else if (source == buttonDot) {
+            if (textField.getText().contains(".")) {
+                return;
+            } else {
+                textField.setText(textField.getText() + ".");
+            }
         }
-        if (e.getSource()==bsub) {
-            a=Double.parseDouble(t.getText());
-            operator=2;
-            t.setText("");
-        }
-        if (e.getSource()==bmul) {
-            a=Double.parseDouble(t.getText());
-            operator=3;
-            t.setText("");
-        }
-        if (e.getSource()==bdiv) {
-            a=Double.parseDouble(t.getText());
-            operator=4;
-            t.setText("");
+        else if (source==buttonAdd) {
+            a = Double.parseDouble(textField.getText());
+            textField.setText("");
+            operator = 1;
+        } else if (source==buttonSub) {
+            a = Double.parseDouble(textField.getText());
+            textField.setText("");
+            operator = 2;
+        } else if (source==buttonMul) {
+            a = Double.parseDouble(textField.getText());
+            textField.setText("");
+            operator = 3;
+        } else if (source==buttonDiv) {
+            a = Double.parseDouble(textField.getText());
+            textField.setText("");
+            operator = 4;
         }
 
-        if (e.getSource()==beql) {
-            b=Double.parseDouble(t.getText());
+        else if (source==buttonEql) {
+            b = Double.parseDouble(textField.getText());
             switch (operator){
                 case 1:result =a+b;
-                break;
+                    break;
                 case 2:result =a-b;
-                break;
+                    break;
                 case 3:result =a*b;
-                break;
+                    break;
                 case 4:result =a/b;
-                break;
+                    break;
             }
-            t.setText(""+result);
+            textField.setText(""+result);
         }
 
-        if (e.getSource()==bclr){
-            t.setText("");
+        else if (source==buttonClr){
+            textField.setText("");
         }
 
-        if (e.getSource()==bdel){
-            String s=t.getText();
-            t.setText("");
+        else if (source==buttonDel){
+            String s=textField.getText();
+            textField.setText("");
             for (int i=0; i<s.length()-1; i++)
-                t.setText(t.getText()+s.charAt(i));
+                textField.setText(textField.getText()+s.charAt(i));
         }
     }
 }
