@@ -1,32 +1,26 @@
-package com.company;
-
-class MyThread1 extends Thread{
+class MyThread10 extends Thread{
     @Override
     public void run(){
-        int i =0;
-        while(i<40000){
+        for (int i=0; i<5; i++){
             System.out.println("My Cooking Thread is Running");
             System.out.println("I am sad!");
-            i++;
         }
     }
 }
 
-class MyThread2 extends Thread{
+class MyThread20 extends Thread{
     @Override
     public void run(){
-        int i =0;
-        while(i<40000){
+        for (int i=0; i<5; i++){
             System.out.println("My Chatting Threading is Running");
             System.out.println("I am happy!");
-            i++;
         }
     }
 }
 public class multiThread {
     public static void main(String[] args) {
-        MyThread1 t1 = new MyThread1();
-        MyThread2 t2 = new MyThread2();
+        MyThread10 t1 = new MyThread10();
+        MyThread20 t2 = new MyThread20();
         t1.start();
         t2.start();
     }
