@@ -18,3 +18,20 @@ class Employee4 {
         obj4.show();
     }
 }
+//sequenceDiagram
+//participant M as main() Method
+//participant E as Employee4 Object (this)
+//participant D as EmpDetails Object
+//M->>E: 1. obj4.show()
+//activate E
+//E->>D: 2. new EmpDetails()
+//activate D
+//Note right of D: Object created in memory
+//E->>D: 3. emp.display(this)
+//Note over E,D: 'this' sends the whole Employee4 object
+//D->>E: 4. Access obj4.massage
+//E-->>D: 5. Returns "Employee4"
+//D-->>E: 6. Prints "Welcome to Employee4"
+//deactivate D
+//E-->>M: 7. Task Finished
+//deactivate E
