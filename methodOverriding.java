@@ -1,4 +1,12 @@
 // Example of Method Overriding in Java
+// Method Overriding Conditions:
+// 1.	Same method names.
+// 2.	Within difference class
+// 3.	Same arguments
+//    i.	No of parameter
+//    ii.	Type of parameter
+//    iii.	Sequence of parameter
+// 4.	Inheritance (IS-A relationship)
 
 class Animal { // Base class
     void move() {
@@ -10,7 +18,7 @@ class Animal { // Base class
 
 class Dog extends Animal {
     @Override
-    void move() { // move method from Base class is override in this method
+    void move() { // move method from Base class is overridden in this method
         System.out.println("Dog is running.");
     }
     void bark() {
@@ -26,3 +34,4 @@ public class methodOverriding {
         d.bark(); // Output: Dog is barking.
     }
 }
+
